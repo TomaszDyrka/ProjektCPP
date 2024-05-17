@@ -1,42 +1,7 @@
 #include <iostream>
 #include <string>
+#include <cmath>
 #include "Shapes.h"
-
-
-
-//-------------------
-//     Kwadrat
-//-------------------
-
-Square::Square( unsigned int x )
-{
-    a = x;
-}
-
-void Square::CalcArea()
-{
-    area = a*a;
-}
-
-void Square::CalcPerimiter()
-{
-    perimiter = 4*a;
-}
-
-void Square::PrintData()
-{
-    std::cout<<"a: "<<a<<"; kat: "<<angle<<std::endl;
-}
-
-unsigned int Square::GetArea()
-{
-    return area;
-}
-
-unsigned int Square::GetPerimiter()
-{
-    return perimiter;
-}
 
 
 
@@ -46,23 +11,23 @@ unsigned int Square::GetPerimiter()
 
 Rectangle::Rectangle( unsigned int x, unsigned int y )
 {
-    a = x;
-    b = y;
+    sides[0] = &x;
+    sides[1] = &y;
 }
 
 void Rectangle::CalcArea()
 {
-    area = a*b;
+    area = (*sides[0]) * (*sides[1]);
 }
 
 void Rectangle::CalcPerimiter()
 {
-    perimiter = 2*a + 2*b;
+    perimiter = 2 * (*sides[0]) + 2 * (*sides[1]);
 }
 
 void Rectangle::PrintData()
 {
-    std::cout<<"a: "<<a<<";b: "<<b<<"; kat: "<<angle<<std::endl;
+    std::cout<<"a: "<<sides[0]<<";b: "<<sides[1]<<"; kat: "<<angle<<std::endl;
 }
 
 unsigned int Rectangle::GetArea()
@@ -75,6 +40,53 @@ unsigned int Rectangle::GetPerimiter()
     return perimiter;
 }
 
+
+
+//-------------------
+//     Trojkat
+//-------------------
+
+Triangle::Triangle( unsigned int x, unsigned int y, unsigned int z)
+{
+    *sides[0] = x;
+    *sides[1] = y;
+    *sides[2] = z;
+}
+
+void Triangle::CalcArea()
+{
+    int s = perimiter / 2;
+    area = sqrt(s * (s - (*sides[0])) * (s - (*sides[1])) * (s - (*sides[2]))); 
+}
+
+void Triangle::CalcPerimiter()
+{
+    perimiter = (*sides[0]) + (*sides[1]) + (*sides[2]);
+}
+
+void Triangle::CalcAngles()
+{
+    int a = (*sides[0]);
+    int b = (*sides[1]);
+    int c = (*sides[2]);
+    
+    double cosA = ((b*b) + (c*c) - (a*a)) / (2 * b * c);
+    double cosB = ((c*c) + (a*a) - (b*b)) / (2 * c * a);
+
+    *angles[0] = acos(cosA);
+    *angles[1] = acos(cosB);
+    *angles[2] = 180 - *angles[1] - *angles[0];
+}
+
+double Triangle::GetArea()
+{
+    return area;
+}
+
+unsigned int Triangle::GetPerimiter()
+{
+    return perimiter;
+}
 
 
 //-------------------

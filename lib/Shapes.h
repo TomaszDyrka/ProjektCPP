@@ -2,31 +2,19 @@
 #define SHAPES_H
 
 #include <string>
+#include <cmath>
 
-class Square
+class Shape
 {
-    public:
-        unsigned int a;
-        
-        explicit Square( unsigned int = 0 );     // konstruktor kopiujacy
-        
-        void CalcArea();                // obliczanie pola
-        void CalcPerimiter();           // obliczanie obowdu
-        void PrintData();               // wypisywanie boku i kata
-        unsigned int GetArea();         // zwracanie pola 
-        unsigned int GetPerimiter();    // zwracanie obowdu 
-    
     private:
-        unsigned int angle = 90;
-        unsigned int area;
-        unsigned int perimiter;
+        unsigned perimiter;
+        
 };
 
-class Rectangle
+class Rectangle : public Shape
 {
     public:
-        unsigned int a;
-        unsigned int b;
+        unsigned int * sides[2];
 
         explicit Rectangle( unsigned int = 0, unsigned int = 0 );  // konstruktor kopiujacy
 
@@ -45,23 +33,19 @@ class Rectangle
 class Triangle
 {
     public:
-        unsigned int a;
-        unsigned int b;
-        unsigned int c;
+        unsigned int * sides[3];
 
-        explicit Triangle( unsigned int = 0 );   // konstruktor kopiujacy
+        explicit Triangle( unsigned int = 0, unsigned int = 0, unsigned int = 0 );   // konstruktor kopiujacy
         
         void CalcArea();                // obliczanie pola
         void CalcPerimiter();           // obliczanie obowdu
-        void PrintData();               // wypisywanie bokow i katow
-        unsigned int GetArea();         // zwracanie pola
+        void CalcAngles();              // obliczanie katow (na podstawie funkcji sinus i cos)
+        double GetArea();               // zwracanie pola
         unsigned int GetPerimiter();    // zwracanie obowdu 
 
     private:
-        unsigned int angleAlpha;
-        unsigned int angleBeta;
-        unsigned int angleGamma;
-        unsigned int area;
+        double * angles[3];
+        double area;
         unsigned int perimiter;
 };
 
