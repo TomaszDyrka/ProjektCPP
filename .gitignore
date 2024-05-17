@@ -1,0 +1,3 @@
+#ignore all in out and vscode
+.vscode
+out/
