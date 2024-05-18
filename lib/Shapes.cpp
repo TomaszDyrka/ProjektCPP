@@ -4,7 +4,6 @@
 #include "Shapes.h"
 
 
-
 //-------------------
 //     Prostokat
 //-------------------
@@ -121,6 +120,21 @@ std::string Disc::GetPerimiter()
 //-------------------
 //      Misc.
 //-------------------
+
+std::ostream& operator<<( std::ostream& os, Rectangle& r)
+{
+    std::string output = "\nBoki:\n";
+
+    
+
+    return os;
+};
+
+std::ostream& operator<<( std::ostream& os, Triangle& t)
+{
+    
+    return os;
+};
 
 std::ostream& operator<<( std::ostream& os, Disc& d)
 {

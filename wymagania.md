@@ -4,11 +4,11 @@
 ###### 1. Projekt obiektowy:
 ---
 
-- [ ] klasy
+- [x] klasy
 - [ ] konstruktory, destruktory
-- [ ] konstruktor kopiujacy
-- [ ] deklaracja przyjaciela
-- [ ] dziedziczenie
+- [x] konstruktor kopiujacy
+- [x] deklaracja przyjaciela
+- [x] dziedziczenie
 - [ ] polimorfizm
 - [ ] klasa abstrakcyjna
 - [ ] czysto wirtualne metody
@@ -26,6 +26,6 @@
 ---
 - [ ] zakresowa petla for
 - [ ] wlasny szablon klasy (lub funkcji) - niekonieczne
-- [ ] przeciazanie operatorów
+- [x] przeciazanie operatorów
 - [ ] wyjatki
-- [ ] plik .h z deklaracja i .cpp z definicja metod - linker
+- [x] plik .h z deklaracja i .cpp z definicja metod - linker

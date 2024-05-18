@@ -3,12 +3,22 @@
 
 #include <string>
 #include <cmath>
+#include <vector>
+
+template <class T>
+class Przeciazenie
+{
+
+};
 
 class Shape
 {
+    public:
+        void CalcArea();                         // obliczanie pola
+        void CalcPerimiter();                    // obliczanie obowdu
     private:
         unsigned perimiter;
-        
+    friend std::ostream& operator<<( std::ostream&, Shape& );
 };
 
 class Rectangle : public Shape
@@ -23,7 +33,7 @@ class Rectangle : public Shape
         void PrintData();                        // wypisywanie boku i kata
         unsigned int GetArea();                  // zwracanie pola 
         unsigned int GetPerimiter();             // zwracanie obowdu 
-
+        friend std::ostream& operator<<( std::ostream&, Rectangle );
     private:
         unsigned int angle = 90;
         unsigned int area;
@@ -42,7 +52,7 @@ class Triangle
         void CalcAngles();              // obliczanie katow (na podstawie funkcji sinus i cos)
         double GetArea();               // zwracanie pola
         unsigned int GetPerimiter();    // zwracanie obowdu 
-
+        friend std::ostream& operator<<( std::ostream&, Triangle); 
     private:
         double * angles[3];
         double area;
@@ -60,12 +70,12 @@ class Disc
         void CalcPerimiter();           // obliczanie obowdu
         std::string GetArea();          // zwracanie pola 
         std::string GetPerimiter();     // zwracanie obowdu 
+        friend std::ostream& operator<<( std::ostream&, Disc& );
 
     private:
         unsigned int area;
         unsigned int perimiter;
-
-    friend std::ostream& operator<<( std::ostream&, Disc& );
+    
 };
 
 #endif
