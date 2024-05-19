@@ -1,3 +1,5 @@
+Program liczący pola i obwody zaprogramowanych figur.
+
 Aby uruchomić program należy:
 1. utworzyć folder w pobranym repozytorium
 2. wejść w utworzony folder, uruchomić terminal
