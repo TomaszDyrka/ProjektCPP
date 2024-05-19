@@ -16,6 +16,7 @@ class Shape
         virtual void Call();                             // wypisanie nazwe figury
         virtual void CalcArea() = 0;                         // obliczanie pola
         virtual void CalcPerimiter();                        // obliczanie obowdu
+
 };
 
 class Rectangle : 
@@ -38,7 +39,7 @@ class TriangleBase:
     public Shape
 {
     public:
-        double angles[3];
+        double * angles = (double*)calloc(3, sizeof(double));
 
         void Call();                            // wypisanie nazwy figury
         virtual void CalcArea();                // obliczanie pola
@@ -46,6 +47,7 @@ class TriangleBase:
         virtual void CalcAngles();              // obliczanie katow (na podstawie funkcji trygonometrycznych)
         double GetArea();                       // zwracanie pola
         unsigned int GetPerimiter();            // zwracanie obowdu 
+
 };
 
 class Triangle:
@@ -68,6 +70,7 @@ class TriRight :
 
         void CalcAngles();              // obliczanie katow (na podstawie funkcji trygonometrycznych)
         friend std::ostream& operator<<( std::ostream&, TriRight& ); 
+
 };
 
 class Disc:
@@ -89,7 +92,7 @@ class Disc:
     private:
         unsigned int area;
         unsigned int perimiter;
-    
+
 };
 
 #endif

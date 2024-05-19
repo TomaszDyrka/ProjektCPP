@@ -147,7 +147,7 @@ Triangle::Triangle( unsigned int x, unsigned int y, unsigned int z )     // kons
     sides.push_back(z);
 
 
-    CalcArea();
+    CalcAngles();
     CalcPerimiter();
     CalcArea();
 }
@@ -219,7 +219,7 @@ Disc::~Disc()
 
 void Disc::Call()
 {
-    std::cout << "-------------\n" <<"Jestem Kolem!" << std::endl;
+    std::cout << "-------------\n" << "Jestem Kolem!" << "\n-------------" << std::endl;
 }
 
 void Disc::CalcArea()

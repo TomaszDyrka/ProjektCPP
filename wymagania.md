@@ -24,8 +24,8 @@
 ---
 ###### 3. C++
 ---
-- [ ] zakresowa petla for
+- [x] zakresowa petla for
 - [ ] wlasny szablon klasy (lub funkcji) - niekonieczne
 - [x] przeciazanie operatorów
-- [ ] wyjatki
+- [x] wyjatki
 - [x] plik .h z deklaracja i .cpp z definicja metod - linker
