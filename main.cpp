@@ -118,7 +118,7 @@ int main()
                         }
                     }
 
-                    catch (int num) // jesli numer poza zakresem 0-50, case'y podwojone zeby latwo mozna bylo rozdzielic pozniej
+                    catch (int num) // jesli numer poza zakresem 0-50, case'y podwojone zeby latwo mozna bylo rozdzielic pozniej jakby byla potrzeba
                     {
                         switch(num)
                         {
