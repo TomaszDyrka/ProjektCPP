@@ -5,21 +5,21 @@
 ---
 
 - [x] klasy
-- [ ] konstruktory, destruktory
+- [x] konstruktory, destruktory
 - [x] konstruktor kopiujacy
 - [x] deklaracja przyjaciela
 - [x] dziedziczenie
-- [ ] polimorfizm
-- [ ] klasa abstrakcyjna
-- [ ] czysto wirtualne metody
+- [x] polimorfizm
+- [x] klasa abstrakcyjna
+- [x] czysto wirtualne metody
 
 ---
 ###### 1. STL
 ---
 
-- [ ] szablony (np. vector , array)
-- [ ] iteratory
-- [ ] algorytmy
+- [x] szablony (np. vector , array)
+- [x] iteratory
+- [x] algorytmy
 
 ---
 ###### 3. C++

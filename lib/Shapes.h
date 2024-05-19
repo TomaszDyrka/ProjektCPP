@@ -5,67 +5,81 @@
 #include <cmath>
 #include <vector>
 
-template <class T>
-class Przeciazenie
-{
-
-};
-
 class Shape
 {
     public:
-        void CalcArea();                         // obliczanie pola
-        void CalcPerimiter();                    // obliczanie obowdu
-    private:
-        unsigned perimiter;
-    friend std::ostream& operator<<( std::ostream&, Shape& );
+        std::vector<int> sides;
+        
+        unsigned int perimiter = 0;
+        double area = 1.0;
+
+        virtual void Call();                             // wypisanie nazwe figury
+        virtual void CalcArea() = 0;                         // obliczanie pola
+        virtual void CalcPerimiter();                        // obliczanie obowdu
 };
 
-class Rectangle : public Shape
+class Rectangle : 
+    public Shape
 {
     public:
-        unsigned int * sides[2];
-
         explicit Rectangle( unsigned int = 0, unsigned int = 0 );  // konstruktor kopiujacy
+        ~Rectangle();                            // destruktor
 
+        void Call();                             // wypisanie nazwy figury
         void CalcArea();                         // obliczanie pola
         void CalcPerimiter();                    // obliczanie obowdu
-        void PrintData();                        // wypisywanie boku i kata
         unsigned int GetArea();                  // zwracanie pola 
         unsigned int GetPerimiter();             // zwracanie obowdu 
-        friend std::ostream& operator<<( std::ostream&, Rectangle );
-    private:
-        unsigned int angle = 90;
-        unsigned int area;
-        unsigned int perimiter;
+        friend std::ostream& operator<<( std::ostream&, Rectangle& );
+
 };
 
-class Triangle
+class TriangleBase:
+    public Shape
 {
     public:
-        unsigned int * sides[3];
+        double angles[3];
 
-        explicit Triangle( unsigned int = 0, unsigned int = 0, unsigned int = 0 );   // konstruktor kopiujacy
-        
-        void CalcArea();                // obliczanie pola
-        void CalcPerimiter();           // obliczanie obowdu
-        void CalcAngles();              // obliczanie katow (na podstawie funkcji sinus i cos)
-        double GetArea();               // zwracanie pola
-        unsigned int GetPerimiter();    // zwracanie obowdu 
-        friend std::ostream& operator<<( std::ostream&, Triangle); 
-    private:
-        double * angles[3];
-        double area;
-        unsigned int perimiter;
+        void Call();                            // wypisanie nazwy figury
+        virtual void CalcArea();                // obliczanie pola
+        void CalcPerimiter();                   // obliczanie obowdu
+        virtual void CalcAngles();              // obliczanie katow (na podstawie funkcji trygonometrycznych)
+        double GetArea();                       // zwracanie pola
+        unsigned int GetPerimiter();            // zwracanie obowdu 
 };
 
-class Disc
+class Triangle:
+    public TriangleBase
+{
+    public:
+        explicit Triangle( unsigned int = 0, unsigned int = 0, unsigned int = 0 );   // konstruktor kopiujacy
+        ~Triangle();                                                                 // destruktor
+
+        friend std::ostream& operator<<( std::ostream&, Triangle& ); 
+
+};
+
+class TriRight : 
+    public TriangleBase
+{
+    public:
+        explicit TriRight( unsigned int = 0, unsigned int = 0, unsigned int = 0 ); // konstruktor
+        ~TriRight();                    // destruktor
+
+        void CalcAngles();              // obliczanie katow (na podstawie funkcji trygonometrycznych)
+        friend std::ostream& operator<<( std::ostream&, TriRight& ); 
+};
+
+class Disc:
+    public Shape
 {
     public:
         unsigned int r;
         
         explicit Disc( unsigned int = 0 );       // konstruktor kopiujacy
-        
+        ~Disc();
+
+        void Call();                    // wypisanie nazwy figury
         void CalcArea();                // obliczanie pola
         void CalcPerimiter();           // obliczanie obowdu
         std::string GetArea();          // zwracanie pola 
